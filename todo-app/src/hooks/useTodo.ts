@@ -55,6 +55,7 @@ export const useTodo = () => {
         setLoading(true);
         try {
             const todoResponse = await apiClient.get<ITodo[]>("/todos")
+            console.log(todoResponse)
             setTodos(todoResponse)
         } catch (error) {
             setError((error instanceof Error) ? error.message : "Unknown error");
@@ -82,7 +83,7 @@ export const useTodo = () => {
             // uppdatera lokala todo-listan
             const updatedItems = todo.items.map((i) =>
                 i._id === item._id
-                    ? {...i, status: {...i.status, value: status, changed_by: user._id}}
+                    ? {...i, status: {...i.status, value: status, changed_by: user.name}}
                     : i
             );
 

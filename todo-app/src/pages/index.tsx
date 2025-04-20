@@ -23,7 +23,8 @@ export default function Home() {
             <ul className={"flex flex-col"}>
                 {todos.map((todoList) => (
                     <li key={todoList._id}>
-                        <TodoList todoList={todoList} onStatusChange={handleStatusChange} recentlyUpdated={recentlyUpdatedItemIds}/>
+                        <TodoList todoList={todoList} onStatusChange={handleStatusChange}
+                                  recentlyUpdated={recentlyUpdatedItemIds}/>
                     </li>
                 ))}
             </ul>
